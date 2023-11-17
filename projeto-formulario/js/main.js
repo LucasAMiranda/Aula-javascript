@@ -1,17 +1,41 @@
-function validar(){
-    //DOM - Document object Model - Modelo de objeto de documento HTML, o dom serve para manipular elementos do html , validando e colocando funcionalidades específicas para cada elemento 
-    
-    let usuario = document.getElementById("name").value
+// JavaScript
+const Validar = (event) => {
 
-    let senha = document.getElementById("password").value
-
-    if (usuario === ""){
-        alert("Por favor, Preencha o campo nome do usuário")
+    if(event){
+        event.preventDefault();
     }
-    else if(senha === ""){
-        alert("Por favor, Preencha o campo senha do usuário")
+
+    let usuario = document.getElementById("username").value;
+    let senha = document.getElementById("password").value;
+    let senhaConfirm = document.getElementById("confirmPassword").value;
+    let errorMessage = document.getElementById("error-message");
+
+    let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+    errorMessage.innerHTML = "";
+
+    if(usuario === ""){
+        errorMessage.innerHTML = "Por favor, preencha o campo Username.";
+        return false;
+    } else if(senha === ""){
+       errorMessage.innerHTML = "Por favor, preencha o campo Senha.";
+       return false;
     }
-    document.getElementById("clickme").addEventListener("click", validar)
 
+    if(!passwordRegex.test(senha)){
+        errorMessage.innerHTML = "A senha deve conter pelo menos 1 letra maiúscula, 1 número e no mínimo 8 caracteres.";
+        return false;
+    }
 
+    if(senha !== senhaConfirm){
+        console.log("As senhas são diferentes!");
+        alert("As senhas são diferentes!");
+        return false;
+    } else {
+        console.log("As senhas são iguais");
+        alert("As senhas são iguais!");
+        return true;
+    }
 }
+
+document.getElementById("btnClick").addEventListener("click", Validar);
