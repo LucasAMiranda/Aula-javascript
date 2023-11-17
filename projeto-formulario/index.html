@@ -1,22 +1,25 @@
+<!-- HTML -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta author="Lucas" />
-    <meta description="Formulario de cadastro" />
-    <title>Validando Formulario</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Formulario com Js</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <form method="GET">
-        <label>Nome do Usuário:</label>
-        <input type="text" value="name" id="name" placeholder="Digite o nome do usuário"/><br/><br/>
+    <form action="" method=""> 
+        <label>Username: </label>
+        <input type="text" id="username" placeholder="Digite seu nome" required />
         <label>Senha: </label>
-        <input type="password" value="password" id="password" placeholder="Digite a senha do usuário" /><br/><br/>
-        <button onclick="validar()" id="clickme">Salvar</button>
+        <input type="password" id="password" placeholder="Digite sua senha" required />
+        <label>Confirmar Senha</label>
+        <input type="password" id="confirmPassword" placeholder="Digite sua senha novamente" required />
+        <div class="error-message" id="error-message"></div>
+        <button type="button" id="btnClick">Salvar</button>
     </form>
 
-    <script src="js/main.js"></script>
+
+    <script src="js/script.js" ></script>
 </body>
 </html>
