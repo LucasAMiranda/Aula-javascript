@@ -1,32 +1,34 @@
-//Declarando variáveis
-let ArrayDeFilmes=[]
-
-
-function capturarFilme(){
-    let title = document.getElementById('title');
-    let author = document.getElementById('author');
-    let description = document.getElementById('description'); 
-    let textoDigitadoNatela = document.getElementById('container-post');
-    let i = 0
-
-
-    //Aqui começa lógica
-    if((title.value != "" ) && (author.value != "") && (description.value != "")){
-        textoDigitadoNatela.innerHTML += `<p>${title.value}</p><p> ${author.value}</p><p>${description.value}</p>`;
-        let Filmes ={
+const CapturarFilme = () => {
     
-            title: title.value,
-            author: author.value,
-            description: description.value
-            
-        }
-        
-        for(i=0; i<ArrayDeFilmes.length; i++){
-            ArrayDeFilmes.push(Filmes);
-        }    
-        
-        console.log(Object.values(Filmes))
-        
+    let arrayDeFilmes = []
+
+    let titulo = document.getElementById("titulo");
+    let autor = document.getElementById("autor");
+    let descricao= document.getElementById("descricao");
+    let textoDigitadoNaTela = document.getElementById("container-filme");
+
+    //Regra de Negócio para capturar os dados do filme(titulo, autor , descrição).
+    if((titulo.value != "")  && (autor.value != "") && (descricao.value != "")){
+       textoDigitadoNaTela.innerHTML += `<p>${titulo.value}</p><p>${autor.value}</p><p>${descricao.value}`;
+       let filmes = {
+         titulo : titulo.value,
+         autor : autor.value,
+         descricao : descricao.value,
+       }
+      
+       /*
+       for(let i=0; arrayDeFilmes.length; i++){
+          arrayDeFilmes.push(filmes);
+       }
+        */
+
+       arrayDeFilmes.push(filmes);
+
+       // Usando forEach para logar os filmes no array
+       arrayDeFilmes.forEach(filme => {
+           console.log(filme);
+       });
+
     }
 
 }
